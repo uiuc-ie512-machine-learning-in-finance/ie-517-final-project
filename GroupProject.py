@@ -33,12 +33,11 @@ corr = x_values.corr()
 sns.heatmap(corr, cmap='coolwarm')
 
 #Feature selections
+##LDA InvGrd
 LDA_I = LinearDiscriminantAnalysis(n_components=1)
 x_lda_I = LDA_I.fit_transform(x_values,y_values_I)
-
+##LDA Rating
 counts_labels = y_values_R.value_counts()
 n_labels =counts_labels.shape[0]
-
-
 LDA_R = LinearDiscriminantAnalysis(n_components=(n_labels-1))
 x_lda2_R = LDA_R.fit_transform(x_values,y_values_R)
